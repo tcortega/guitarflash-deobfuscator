@@ -1,0 +1,5 @@
+dist/
+node_modules/
+deobfuscated.js
+obfuscated.js
+obfuscated-main.js
