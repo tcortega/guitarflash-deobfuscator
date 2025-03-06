@@ -1,16 +1,16 @@
 import { Deobfuscator } from "./deobfuscator";
-import { bracketToDotPlugin } from "./plugins/bracketToDotPlugin";
-import { numericExpressionEvaluatorPlugin } from "./plugins/numericExpressionEvaluatorPlugin";
-import { stringConcatPlugin } from "./plugins/stringConcatPlugin";
+import { constantRenamerPlugin } from "./plugins/constantRenamerPlugin";
+import { dataTransformPlugin } from "./plugins/dataTransformPlugin";
+import { functionInlinerPlugin } from "./plugins/functionInlinerPlugin";
 import { stringDeobfuscatorPlugin } from "./plugins/stringDeobfuscator";
 import * as fs from "fs";
 import * as path from "path";
 
 const deobfuscator = new Deobfuscator();
 deobfuscator.addPlugin(stringDeobfuscatorPlugin);
-deobfuscator.addPlugin(stringConcatPlugin);
-deobfuscator.addPlugin(bracketToDotPlugin);
-deobfuscator.addPlugin(numericExpressionEvaluatorPlugin);
+deobfuscator.addPlugin(constantRenamerPlugin);
+deobfuscator.addPlugin(functionInlinerPlugin);
+deobfuscator.addPlugin(dataTransformPlugin);
 
 // Read the obfuscated code from the file
 const obfuscatedFilePath = path.join(__dirname, "..", "obfuscated.js");
